@@ -1,0 +1,27 @@
+# Django
+
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
+
+# Local Libraries
+include/
+lib/
+
+# Cache from files .py on source
+src/__pycache__
+
+*.pyc
+
+# Scripts for UX
+bin/
+
+# Scripts for windows
+Scripts/ 
+
+# Virtual Environment config
+pyvenv.cfg
