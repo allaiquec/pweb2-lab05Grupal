@@ -18,7 +18,8 @@ def post_detail(request, pk):
 
 def post_new(request):
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        # FILES necesario para traer las imagenes
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -44,3 +45,11 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+# def handle_uploaded_file(f):
+#     file_name = os.path.join('media_upload/noticias', f.name)
+#     destination = open(file_name, 'wb+')
+#     for chunk in f.chunks():
+#     destination.write(chunk)
+#     destination.close()
