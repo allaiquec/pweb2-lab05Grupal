@@ -212,6 +212,7 @@
     <ul>
         <li>La guía: https://tutorial.djangogirls.org/es/django_start_project/ nos ha servido para introducirnos en el proceso de creación de un blog usando django, incluso siendo un blog básico hemos aprendido mucho.</li>
         <li>En conclusión Django es uno de los Frameworks de Python más populares, que da recursos para la creación de aplicaciones y estos se pudo emplear para las necesidades de este proyecto de creación de un blog.</li>
+        <li>En conclusión respecto a las bases de datos, son de gran utilidad al momento de agrupar y almacenar los datos, además que tenemos un acceso rápido a los datos aumentado así nuestra productividad</li>
     </ul>
     </td></tr>
 </tbody>
