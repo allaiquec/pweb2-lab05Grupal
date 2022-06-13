@@ -8,7 +8,9 @@
   ></a>
   {% endif %}
   <h2>{{ post.title }}</h2>
-  <p>{{ post.text|linebreaksbr }}</p>
+  <p style="white-space: initial; text-align: left">
+    {{ post.text|linebreaksbr }}
+  </p>
   <img
     class="image_details"
     src="../../blog/media/{{post.photo}}"
