@@ -29,10 +29,10 @@
 <tr><td>ASIGNATURA:</td><td colspan="5">Progamación Web 2</td></tr>
 <tr><td>TÍTULO DE LA PRÁCTICA:</td><td colspan="5">Python</td></tr>
 <tr>
-<td>NÚMERO DE PRÁCTICA:</td><td>04</td><td>AÑO LECTIVO:</td><td>2022 A</td><td>NRO. SEMESTRE:</td><td>III</td>
+<td>NÚMERO DE PRÁCTICA:</td><td>05</td><td>AÑO LECTIVO:</td><td>2022 A</td><td>NRO. SEMESTRE:</td><td>III</td>
 </tr>
 <tr>
-<td>FECHA DE PRESENTACIÓN:</td><td>05/06/2022</td><td>HORA DE PRESENTACIÓN:</td><td colspan="3">11:30 pm</td>
+<td>FECHA DE PRESENTACIÓN:</td><td>12/06/2022</td><td>HORA DE PRESENTACIÓN:</td><td colspan="3">11:55 pm</td>
 </tr>
 <tr><td colspan="3">INTEGRANTE(s):
 <ul>
@@ -60,80 +60,158 @@
 <tbody >
 <tr><td>I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS
     <ul>
-        <li>Los ejercicios se realizaron en un ambiente virtual. Siga los siguientes pasos para poder ejecutar los ejercicios: 
+        <li>Todos realizamos nuestros propios blogs siguiendo el tutorial dado, sin embargo, para la entrega decidimos usar uno y mejorarlo en conjunto para hacer la presentación mediante una reunión meet<br/>
+        <image src="https://user-images.githubusercontent.com/85516522/173279989-454b15ed-37b2-4597-a4cc-765c0cf913d7.png" width=500/>
+        </li>
+        <li>URL pública del blog: https://gabicho.pythonanywhere.com/</li>
+        <li>Video explicativo: https://www.youtube.com/watch?v=BYaMvbQ7mc0</li>
+        <li>Los ejercicios se realizaron en un ambiente virtual. Siga los siguientes pasos para poder ejecutar el blog: 
             <ol>
                 <li>Clonar el repositorio</li>
-                <li>Acceder al repositorio <code>cd Pweb2-lab04-grupal</code></li>
+                <li>Acceder al repositorio <code>cd pweb2-lab05Grupal</code></li>
                 <li>Crear un ambiente virtual en el repositorio con <code>virtualenv -p python3 .</code></li>
                 <li>Active el ambiente virtual con <code>./bin/activate</code> en linux y <code>./Scripts/activate</code> en Windows</li>
                 <li>Instalar las dependencias con <code>pip install -r requirements.txt</code></li>
-                <li>Ya podrá ejecutar los ejercicios con python</li>
+                <li>Ya podrá ejecutar el blog</li>
             </ol>
         </li>
         <li>
-            Resultados Ejercicio 2a<br/>
-            <image src="https://user-images.githubusercontent.com/85516522/172094959-3c55622b-d1cf-4389-9637-f4d8e55d34a7.png" width=300/>
-        </li>
-        <li>
-            Resultados Ejercicio 2b<br/>
-            <image src="https://user-images.githubusercontent.com/85516522/172095028-6f9d8265-1cfe-458a-8950-9ede5db890b2.png" width=300/>
-        </li>
-        <li>
-            Resultados Ejercicio 2c<br/>
-            <image src="https://user-images.githubusercontent.com/85516522/172095690-aefc6167-6bc2-4c8f-9560-11d663d14f90.png" width=300/>
-        </li>
-        <li>
-            Resultados Ejercicio 2d<br/>
-            <image src="https://user-images.githubusercontent.com/85516522/172095131-f923240d-e867-476b-8b72-bf730a01d62c.png" width=300/>
-        </li>
-        <li>
-            Resultados Ejercicio 2e<br/>
-            <image src="https://user-images.githubusercontent.com/85516522/172095279-9b6e5e4b-e6a7-492c-a740-cb5b61e454d1.png" width=300/>
-        </li>
-        <li>
-            Resultados Ejercicio 2f<br/>
-            <image src="https://user-images.githubusercontent.com/85516522/172095246-869fed6b-d4db-4f0c-b648-e313a353e9cb.png" width=300/>
-        </li>
-        <li>
-            Resultados Ejercicio 2g<br/>
-            <image src="https://user-images.githubusercontent.com/85516522/172094305-d5f27e82-151f-42b1-8a85-0030e5dfee7a.png" width=300/>
+            Pasos para realizar el trabajo, de manera breve, realizamos:
+            <ol>
+                <li>Creamos nuestro directorio donde guardaremos el proyecto</li>
+                <li>En el directorio, creamos nuestro ambiente virtual y lo iniciamos</li>
+                <li>Instalamos Django <code>pip install Django==3.2.10</code>. Usamos esta versión porque es la máxima soportada por pythonanywere<li/>
+                <li>Inicializamos el proyecto con <code>django-admin startproject mysite .</code></li>
+                <li>
+                    Realizamos las configuraciones:
+                    <ol>
+                        <li>
+                            Abrimos el archivo mysite/settings.py y cambiamos:
+                            <ol>
+                                <li>TIME_ZONE=’America/Lima’</li>
+                                <li>LANGUAGE_CODE = 'es-es'</li>
+                                <li>STATIC_URL = '/static/'</li>
+                                <li>STATIC_ROOT = os.path.join(BASE_DIR, 'static')</li>
+                                <li>ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']</li>
+                                <li>La base de datos vendrá configurado por defecto.</li>
+                            </ol>
+                        </li>
+                        <li>Ejecutamos <code>python manage.py migrate</code> para aplicar los cambios hechos</li>
+                    </ol>
+                </li>
+                <li>Una vez realizadas las configuraciones, podremos iniciar el servidor con <code>Python manage.py runserver</code></li>
+                <li>Una vez vimos la ejecución fue exitosa, procedimos a crear nuestra aplicación con <code>python manage.py startapp blog</code></li>
+                <li>Nuevamente abrir los mysite/settings y añadimos nuestra app al arreglo <code> INSTALLED_APPS=[……, 'blog.apps.BlogConfig', ]</code></li>
+                <li>Luego abrimos blog/models.py y creamos nuestro modelo Post</li>
+                <li>Una vez creado el modelo, haremos que se cree la tabla en la base de datos con <code>python manage.py makemigrations</code> y luego <code>python manage.py migrate</code></li>
+                <li>Luego creamos un superusuario para poder añadir Post momentáneos con <code>python manage.py createsuperuser</code></li>
+                <li>Luego subimos nuestro proyecto a GitHub, pero primero realizamos un .gitignore para no subir cahché ni elementos del virtual environment.</li>
+                <li>Una vez subido, nos creamos una cuenta en www.pythonanywhere.com para poder subir nuestro proyecto, en la Shell de pythonanywhere instalamos la dependencia de pythonanywhere, el proyecto lo instalamos con <code>pa_autoconfigure_django.py --python=3.6 url_repositorio</code></li>
+                <li>Viendo que funcionaba, hicimos una plantilla html en blog/templates/blog, creamos una vista en blog/views.py que renderice esta plantilla y configuramos las urls en blog/urls.py para que muestre la vista.</li>
+                <li>Luego usamos QuerySets, las enviamos a través del contexto ({}) para poder usarlo dinámicamente en el HMTL.</li>
+                <li>Ya sabiendo manejar el contexto y y a insertar código python en HTML, gracias Django, utilizamos templates base para reutilizar código HTML.</li>
+                <li>Creamos un archivo Forms.py para poder realizar un formulario para crear nuevos Posts y le pusimos validaciones para que solo super usuarios registrados puedan crear. </li>
+                <li>Luego instalamos Pillow~=9.1.1 como dependencia, esta librería nos fue útil para poder agregarle imagen a nuestro blog. </li>
+                <li>
+                    Creamos rutas estáticas para las imágenes en settings: 
+                    <ol>
+                        <li>MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/media')</li>
+                        <li>MEDIA_URL = 'blog/media/'</li>
+                    </ol>
+                </li>
+                <li>
+                    Luego modificamos el modelo y las url para poder hacer uso de estas rutas y poder subir imágenes desde el front    
+                    <ol>
+                        <li>En blog/urls.py añadimos <code>urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)</code></li>
+                        <li>En el modelo de Post añadimos <code>photo = models.ImageField(upload_to='images/', blank=True, null=True)</code></li>
+                        <li>Y finalmente en blog/views cambiamos de <code>form = PostForm(request.POST)</code> a <code>form = PostForm(request.POST, request.FILES)</code> para poder recibir los documentos enviados.</li>
+                    </ol>
+                </li>
+                <li>Finalmente le dimos estilos a toda la aplicación para la presentación.</li>
+            </ol>
         </li>
     </ul>
 <tr><td>II. SOLUCIÓN DEL CUESTIONARIO
     <ul>
         <li>
-            ¿Qué son los archivos *.pyc?
+            ¿Cuál es un estándar de codificación para Python?
             <ul>
-                <li>pyc es una versión compilada, o "ya interpretado" de un modulo. Los archivos PYC son más rápidos y mejoran el tiempo de ejecución.Los archivos PYC contienen principalmente bytecode de Python</li>
-                <li>Son archivos ejecutables, que contienen un codigo de bytes compilado para un programa escrito en python</li>
-                <li>Aquellos archivos que tienen una extensión “pyc”  son los que contienen la versión ya interpretada, el resultado de compilar código. Es decir que después de la primera ejecución en Python, se utilizará el .pyc compilado al importar. Con los archivos pyc y py guardados, mientras que el código fuente del módulo no cambie, no tiene que volver a compilar las instrucciones. Con ello, ayuda a acelerar y mejorar el tiempo de ejecución.</li>
+                <li>Un estándar de codificación para Python es PEP8.</li>
+                <li>La comunidad de usuarios de Python ha adoptado una guía de estilo que facilita la lectura del código y la consistencia entre programas de distintos usuarios.</li>
+                <li>PEP8 sirve para escribir código claro y comprensible para otros programadores dando recomendaciones con el objetivo de escribir un código más legible.</li>
+                <li>En esta se define al pie de la letra, como debería estar escrito nuestro código Python. Ver más en https://ellibrodepython.com/python-pep8 .</li>
             </ul>  
         </li>
         <li>
-            ¿Para qué sirve el directorio pycache?
+            ¿Qué diferencias existen entre EasyInstall, pip, y PyPM?
             <ul>
-                <li>Python registra y almacena  las versiones compiladas en un directorio, pycache es el directorio que  sirve para ello,  para contener los archivos pyc, estos comparten el mismo nombre con los archivos .py en su carpeta de proyecto. Su mayor aporte está en brindar una ejecución más rápida, sin embargo el directorio puede ser ignorado simplemente</li>
-                <li>Sirve para almacenar los numerosos archivos con la extension .pyc  que se crean al ejecutar el codigo de Python</li>
-                <li>pycache sirve como un directorio que contiene archivos de caché de bytecode que son generados automáticamente por python, es decir, python compilado.</li>
+                <li>
+                    EasyInstall
+                    <ul>
+                        <li>Suministra un formato estándar para distribuir programas y bibliotecas en Python</li>
+                        <li>Solo hay easy_install en la versión anterior de Python</li>
+                        <li>Es gratuito</li>
+                        <li>Viene por defecto en las setuptools</li>
+                    </ul>
+                </li>
+                <li>
+                    Pip
+                    <ul>
+                        <li>Permite gestionar listas de paquetes y sus números de versión correspondientes a través de un archivo de requisitos</li>
+                        <li>Pip es una versión mejorada de easy_install</li>
+                        <li>Es gratuito</li>
+                        <li>Se debe instalar para las versionas anteriores a Python 3.4, en las posteriores incluyen pip por defecto.</li>
+                    </ul>
+                </li>
+                <li>
+                    PyPM
+                    <ul>
+                        <li>Simplifica las tareas de localización, instalación, actualización y eliminación de paquetes de Python</li>
+                        <li>PyPM no es gratuito y solo se puede usar con la distribución ActivePython de ActiveState</li>
+                        <li>Se debe instalar manualmente</li>
+                    </ul>
+                </li>
             </ul>
         </li>
         <li>
-            ¿Cuáles son los usos y lo que representa el subguión en Python?
+            En un proyecto Django que se debe ignorar para usar git. Vea: https://github.com/django/django/blob/main/.gitignore. ¿Qué otros tipos de archivos se deberían agregar a este archivo?
             <ul>
-                <li>Depende de la ubicación. Por ejemplo. Con solo un subguion( name), indicaría un uso interno y que no debería ser accedida desde fuera de la clase. Con doble(_name) indicaría un atributo privado.</li>
-                <li>Uno de los usos es para codificar los constructores, 2 guiones bajos al inicio y al final</li>
-                <li>El guión bajo en python se usa principalmente como modificador de acceso, también se utiliza para declarar los constructores
-Usos Almacenando el ultimo valor de interprete,En la nomenclatura defunciones y variables, indicando una importancia especifica,Ignorar valores,Para internacionalizar cadenas,Facilitando la legibilidad.</li>
+                <li>
+                    Ejmplo: 
+                    <ul>
+                        <li>*.pyc</li>
+                        <li>*~</li>
+                        <li>__pycache__</li>
+                        <li>myvenv</li>
+                        <li>db.sqlite3</li>
+                        <li>.DS_Store</li>
+                        <li>include/</li>
+                        <li>lib/</li>
+                        <li>src/__pycache__</li>
+                        <li>bin/</li>
+                        <li>Scripts/ </li>
+                        <li>pyvenv.cfg</li>
+                    </ul>
+                </li>
+                <li>Al ignorar la base de datos SQLite en tu copia de GitHub, todos los posts y el super usuario que has creado hasta el momento solo estarán disponibles en local, y tendrás que crear nuevos usuarios y publicaciones en producción. Tu base de datos local es un buen campo de pruebas.</li>
+            </ul>
+        </li>
+        <li>
+            Utilice <code>python manage.py shell</code> para agregar objetos. ¿Qué archivos se modificaron al agregar más objetos?
+            <ul>
+                <li>Para crear un nuevo objeto Post, necesitamos un autor, el cual podemos sacar de uno de los post anteriores, o podemos ver todos los usuarios tenemos en nuestra base de datos.</li>
+                <li>Obtenemos una instancia del usuario.</li>
+                <li>Con ello, recién podemos crear nuestro nuevo objeto Post</li>
+                <li>Finalmente, podemos ver si está guardado con Post.objects.all(), donde vemos que se ha actualizado. </li>
+                <li>Entonces se puede decir que el archivo modificado, al usar python manage.py shell para agregar objetos, es la base de datos que viene por defecto, sqlite3, que se  encuentra configurado en mysite/settings.py</li>
             </ul>
         </li>
     </ul>
     </td></tr>
 <tr><td>III. CONCLUSIONES
     <ul>
-        <li>En este trabajo hemos repasado las características más importantes de Python: los tipos de datos, funciones integradas, librerías etc, que nos ayudaron a complementar nuestros aprendizajes</li>
-        <li>Gracias a la actividad se pudo trabajar conceptos importantes acerca del lenguaje de programación Python como listas, ciclos, condicionales, entre otras. También la información proporcionada por el docente junto con los ejercicios resueltos fueron útiles para la resolución del trabajo.</li>
-        <li>En el presente laboratorio pudimos aprender a usar de manera correcta un virtual enviroment para poder gestionar dependencias locales y no globales mediante pip. Conocimos librerías como pygame que es muy útil para crear videojuegos rápidos con python y de manera breve</li>
-        <li>Python demostró ser un lenguaje agradable que nos permite enforcarnos más en la lógica de programación que en ciertas reglas de sintaxis</li>
+        <li>La guía: https://tutorial.djangogirls.org/es/django_start_project/ nos ha servido para introducirnos en el proceso de creación de un blog usando django, incluso siendo un blog básico hemos aprendido mucho.</li>
+        <li>En conclusión Django es uno de los Frameworks de Python más populares, que da recursos para la creación de aplicaciones y estos se pudo emplear para las necesidades de este proyecto de creación de un blog.</li>
     </ul>
     </td></tr>
 </tbody>
@@ -157,7 +235,8 @@ Usos Almacenando el ultimo valor de interprete,En la nomenclatura defunciones y 
 <ul>
     <li>https://www.w3schools.com/python/python_reference.asp</li>
     <li>https://docs.python.org/3/tutorial/</li>
-    <li>https://www.geeksforgeeks.org/python-map-function/</li>
-    <li>https://www.freecodecamp.org/espanol/news/expresiones-lambda-en-python/#:~:text=Las%20expresiones%20lambda%20en%20Python,con%20la%20palabra%20clave%20def%20</li>
-    <li>https://www.analyticslane.com/2019/09/23/listas-por-comprension-en-python/</li>
+    <li>https://www.youtube.com/watch?v=MAuHTqROt8w</li>
+    <li>https://tutorial.djangogirls.org/es/django_start_project/</li>
+    <li>https://docs.djangoproject.com/en/4.0/</li>
+    <li>https://ellibrodepython.com/python-pep8</li>
 </ul>
