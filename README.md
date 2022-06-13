@@ -72,7 +72,7 @@
                 <li>Crear un ambiente virtual en el repositorio con <code>virtualenv -p python3 .</code></li>
                 <li>Active el ambiente virtual con <code>./bin/activate</code> en linux y <code>./Scripts/activate</code> en Windows</li>
                 <li>Instalar las dependencias con <code>pip install -r requirements.txt</code></li>
-                <li>Ya podrá ejecutar el blog</li>
+                <li>Ya podrá ejecutar el blog con <code>python manage.py runserver</code></li>
             </ol>
         </li>
         <li>
